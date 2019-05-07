@@ -399,7 +399,7 @@ class PairStateInteractions:
         try:
             fileHandle =  gzip.GzipFile(os.path.join(self.dataFolder,\
                                                      self.angularMatrixFile_meta),'rb')
-            data = np.load(fileHandle, encoding = 'latin1')
+            data = np.load(fileHandle, encoding = 'latin1', allow_pickle=True)
             fileHandle.close()
         except :
             print("Note: No saved angular matrix metadata files to be loaded.")
@@ -437,7 +437,7 @@ class PairStateInteractions:
             fileHandle =  gzip.GzipFile(os.path.join(self.dataFolder,\
                                                     self.angularMatrixFile),'rb')
             self.savedAngularMatrix_matrix = np.load(fileHandle,\
-                                                     encoding = 'latin1').tolist()
+                                                     encoding = 'latin1', allow_pickle=True).tolist()
             fileHandle.close()
         except :
             print("Note: No saved angular matrix files to be loaded.")
